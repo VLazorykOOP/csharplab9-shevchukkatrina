@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Lab9
 {
-    // Клас для порівняння студентів за прізвищем (демонстрація IComparer)
     class StudentComparer : IComparer
     {
         public int Compare(object x, object y)
@@ -16,7 +15,6 @@ namespace Lab9
             if (s1 == null || s2 == null)
                 return 0;
 
-            // Припустимо, прізвище — другий елемент, розділений комами
             string lastName1 = s1.Split(',')[1];
             string lastName2 = s2.Split(',')[1];
 
@@ -79,7 +77,6 @@ namespace Lab9
                 }
             }
 
-            // Використаємо StudentComparer для сортування
             StudentComparer comparer = new StudentComparer();
             passedList.Sort(comparer);
             failedList.Sort(comparer);
@@ -93,7 +90,6 @@ namespace Lab9
                 Console.WriteLine(student);
         }
 
-        // Реалізація IEnumerable для всіх студентів (пройдемося по двох списках)
         public IEnumerator GetEnumerator()
         {
             foreach (var item in passedList)
@@ -102,7 +98,6 @@ namespace Lab9
                 yield return item;
         }
 
-        // Реалізація ICloneable
         public object Clone()
         {
             Lab9T4 clone = new Lab9T4();
